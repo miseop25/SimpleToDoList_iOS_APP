@@ -13,6 +13,7 @@
 		76D8821A24CF1CAE00F8695B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D8821824CF1CAE00F8695B /* Main.storyboard */; };
 		76D8821C24CF1CB100F8695B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D8821B24CF1CB100F8695B /* Assets.xcassets */; };
 		76D8821F24CF1CB100F8695B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D8821D24CF1CB100F8695B /* LaunchScreen.storyboard */; };
+		76D8822B24CF2FEC00F8695B /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8822A24CF2FEC00F8695B /* ToDoListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		76D8821B24CF1CB100F8695B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76D8821E24CF1CB100F8695B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76D8822024CF1CB100F8695B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76D8822A24CF2FEC00F8695B /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				76D8821224CF1CAE00F8695B /* AppDelegate.swift */,
 				76D8821424CF1CAE00F8695B /* SceneDelegate.swift */,
 				76D8821624CF1CAE00F8695B /* ViewController.swift */,
+				76D8822A24CF2FEC00F8695B /* ToDoListTableViewController.swift */,
 				76D8821824CF1CAE00F8695B /* Main.storyboard */,
 				76D8821B24CF1CB100F8695B /* Assets.xcassets */,
 				76D8821D24CF1CB100F8695B /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				76D8821724CF1CAE00F8695B /* ViewController.swift in Sources */,
 				76D8821324CF1CAE00F8695B /* AppDelegate.swift in Sources */,
 				76D8821524CF1CAE00F8695B /* SceneDelegate.swift in Sources */,
+				76D8822B24CF2FEC00F8695B /* ToDoListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,6 +291,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4B3FA9X6ZD;
 				INFOPLIST_FILE = SimpleToDoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +310,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4B3FA9X6ZD;
 				INFOPLIST_FILE = SimpleToDoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
