@@ -14,18 +14,23 @@ class ToDoListTableViewController: UIViewController {
 
     @IBOutlet weak var listTableView: UITableView!
     
+    let formatter: DateFormatter = {
+       let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "Ko_kr")
+        return f
+    }()
     
-    var context: NSManagedObjectContext{
-        guard let app = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError()
-        }
-        return app.persistentContainer.viewContext
-    }
+    
     
     
     var list = [("할일을 추가하세요", "날짜")]
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.viewWillAppear(true)
+        DataManager.shared.fatchToDoList()
+        listTableView.reloadData()
 
 
     }
@@ -39,18 +44,9 @@ class ToDoListTableViewController: UIViewController {
             guard let textField = alert.textFields else {return}
             guard let addToDo = textField.first?.text else {return}
             
-            let now = Date()
-            let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "ko_KO")
-            formatter.setLocalizedDateFormatFromTemplate("yyyyMMMMdE")
-            
-            
-            let addTime = formatter.string(from: now)
-            self.list.append((addToDo, addTime))
-            let insertPath = IndexPath(row: self.list.count - 1, section: 0)
-            self.listTableView.beginUpdates()
-            self.listTableView.insertRows(at: [insertPath], with: .automatic)
-            self.listTableView.endUpdates()
+            DataManager.shared.addNewToDo(addToDo)
+            self.listTableView.reloadData()
+
         }
         let cancleButten = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
@@ -65,14 +61,17 @@ class ToDoListTableViewController: UIViewController {
 
 @available(iOS 13.0, *)
 extension ToDoListTableViewController: UITableViewDataSource {
+    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return DataManager.shared.toDoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = list[indexPath.row].0
-        cell.detailTextLabel?.text = list[indexPath.row].1
+        let target = DataManager.shared.toDoList[indexPath.row]
+        cell.textLabel?.text = target.toDoTitle
+        cell.detailTextLabel?.text = formatter.string(from: target.dates ?? Date())
         return cell
     }
     

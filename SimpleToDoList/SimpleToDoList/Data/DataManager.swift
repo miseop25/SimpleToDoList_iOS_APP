@@ -37,7 +37,7 @@ class DataManager {
     
     func addNewToDo(_ title: String?) {
         let newToDo = ToDoList(context: mainContenxt)
-        newToDo.title = title
+        newToDo.toDoTitle = title
         newToDo.dates = Date()
         
         toDoList.insert(newToDo, at: 0)
