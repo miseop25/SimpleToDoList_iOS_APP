@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import CoreData
 
+@available(iOS 13.0, *)
 class ToDoListTableViewController: UIViewController {
 
     @IBOutlet weak var listTableView: UITableView!
     
+    
+    var context: NSManagedObjectContext{
+        guard let app = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError()
+        }
+        return app.persistentContainer.viewContext
+    }
     
     
     var list = [("할일을 추가하세요", "날짜")]
@@ -34,6 +43,8 @@ class ToDoListTableViewController: UIViewController {
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ko_KO")
             formatter.setLocalizedDateFormatFromTemplate("yyyyMMMMdE")
+            
+            
             let addTime = formatter.string(from: now)
             self.list.append((addToDo, addTime))
             let insertPath = IndexPath(row: self.list.count - 1, section: 0)
@@ -52,6 +63,7 @@ class ToDoListTableViewController: UIViewController {
 
 }
 
+@available(iOS 13.0, *)
 extension ToDoListTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -67,6 +79,7 @@ extension ToDoListTableViewController: UITableViewDataSource {
     
 }
 
+@available(iOS 13.0, *)
 extension ToDoListTableViewController: UITableViewDelegate {
     
 }
