@@ -43,7 +43,6 @@ class ToDoListTableViewController: UIViewController {
         let addButten = UIAlertAction(title: "추가", style: .default) { (addToDo) in
             guard let textField = alert.textFields else {return}
             guard let addToDo = textField.first?.text else {return}
-            
             DataManager.shared.addNewToDo(addToDo)
             self.listTableView.reloadData()
 
@@ -73,6 +72,19 @@ extension ToDoListTableViewController: UITableViewDataSource {
         cell.textLabel?.text = target.toDoTitle
         cell.detailTextLabel?.text = formatter.string(from: target.dates ?? Date())
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let target = DataManager.shared.toDoList[indexPath.row]
+            DataManager.shared.delectToDo(target)
+            DataManager.shared.toDoList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     
