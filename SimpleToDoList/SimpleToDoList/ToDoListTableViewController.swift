@@ -74,23 +74,59 @@ extension ToDoListTableViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let target = DataManager.shared.toDoList[indexPath.row]
-            DataManager.shared.delectToDo(target)
-            DataManager.shared.toDoList.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
-    
 }
 
 @available(iOS 13.0, *)
 extension ToDoListTableViewController: UITableViewDelegate {
+    
+        func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            
+            let unreadAction = UIContextualAction(style: .normal, title: "Unread") { (action, view, completion) in
+                completion(true)
+            }
+            
+            unreadAction.backgroundColor = UIColor.systemBlue
+            unreadAction.image = UIImage(named: "mail")
+            let configuration = UISwipeActionsConfiguration(actions: [unreadAction])
+            return configuration
+        }
+    
+        func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            let delectAction = UIContextualAction(style: .normal, title: "삭제") { (action, view, completion) in
+                let alert = UIAlertController(title: "삭제", message: "할일을 삭제하시겠습니까?", preferredStyle: .alert)
+                let delectButten = UIAlertAction(title: "삭제", style: .default) { (target) in
+                    let target = DataManager.shared.toDoList[indexPath.row]
+                    DataManager.shared.delectToDo(target)
+                    DataManager.shared.toDoList.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+                let cancleButten = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                alert.addAction(delectButten)
+                alert.addAction(cancleButten)
+                self.present(alert, animated: true, completion: nil)
+                
+                completion(true)
+            }
+            delectAction.backgroundColor = UIColor.systemRed
+            
+            let completeAction = UIContextualAction(style: .destructive, title: "완료") { (action, view, completion) in
+                print("완료버튼 선택")
+                completion(true)
+            }
+            completeAction.backgroundColor = UIColor.systemBlue
+            
+            let editAction = UIContextualAction(style: .normal, title: "편집") { (action, view, complection) in
+                complection(true)
+            }
+            
+            
+    //        row action과 마찬가지로 배열에 추가된 순서대로 셀 오른쪽에서부터 생성된다.
+            let configuration = UISwipeActionsConfiguration(actions: [completeAction,delectAction, editAction])
+            
+    //        이 속성을 True로 했을때 셀전체를 스와이프 했을때 첫번째 액션이 수행된다.
+            configuration.performsFirstActionWithFullSwipe = true
+            return configuration
+            
+        }
     
 }
