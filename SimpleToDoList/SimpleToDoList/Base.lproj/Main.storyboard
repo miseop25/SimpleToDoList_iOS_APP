@@ -8,23 +8,77 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Complete-->
         <scene sceneID="Xx1-mh-EgO">
             <objects>
-                <viewController id="5mR-Ob-rFY" sceneMemberID="viewController">
+                <viewController id="5mR-Ob-rFY" customClass="CompleteTableViewController" customModule="SimpleToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TgP-uU-IDi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVd-Oz-lmh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Comleted To Do" id="6oI-N0-DuZ"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7a-pl-hsJ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Oky-Q2-0Xv" detailTextLabel="T56-4c-igm" style="IBUITableViewCellStyleSubtitle" id="KQf-pZ-kIF">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KQf-pZ-kIF" id="ryc-KR-3fw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Oky-Q2-0Xv">
+                                                    <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T56-4c-igm">
+                                                    <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5mR-Ob-rFY" id="xo5-Pv-oZU"/>
+                                    <outlet property="delegate" destination="5mR-Ob-rFY" id="d6X-42-rCh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="v7a-pl-hsJ" firstAttribute="bottom" secondItem="NOq-dU-yhc" secondAttribute="bottom" id="4QA-mr-gPO"/>
+                            <constraint firstItem="AVd-Oz-lmh" firstAttribute="trailing" secondItem="NOq-dU-yhc" secondAttribute="trailing" id="4km-0x-Lze"/>
+                            <constraint firstItem="v7a-pl-hsJ" firstAttribute="top" secondItem="AVd-Oz-lmh" secondAttribute="bottom" id="VAV-pB-rBJ"/>
+                            <constraint firstItem="AVd-Oz-lmh" firstAttribute="top" secondItem="TgP-uU-IDi" secondAttribute="top" constant="44" id="b1n-AO-VWg"/>
+                            <constraint firstItem="v7a-pl-hsJ" firstAttribute="leading" secondItem="NOq-dU-yhc" secondAttribute="leading" id="iUq-pB-cpW"/>
+                            <constraint firstItem="v7a-pl-hsJ" firstAttribute="trailing" secondItem="NOq-dU-yhc" secondAttribute="trailing" id="ll2-Ls-EQ5"/>
+                            <constraint firstItem="AVd-Oz-lmh" firstAttribute="leading" secondItem="NOq-dU-yhc" secondAttribute="leading" id="xlt-Mj-8Ii"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NOq-dU-yhc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="6fZ-3D-f5y"/>
+                    <tabBarItem key="tabBarItem" title="Complete" image="checkmark" catalog="system" id="6fZ-3D-f5y"/>
+                    <connections>
+                        <outlet property="completeTableView" destination="v7a-pl-hsJ" id="2Zk-ko-Hye"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qki-YN-FLj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="619"/>
+            <point key="canvasLocation" x="630.43478260869574" y="618.75"/>
         </scene>
-        <!--홈-->
+        <!--TO DO-->
         <scene sceneID="TBh-cI-5cQ">
             <objects>
                 <viewController id="q95-sx-y4h" customClass="ToDoListTableViewController" customModule="SimpleToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,7 +145,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WWg-WM-F4w"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="홈" image="house.fill" catalog="system" id="crD-sx-mWM"/>
+                    <tabBarItem key="tabBarItem" title="TO DO" image="pencil" catalog="system" id="crD-sx-mWM"/>
                     <connections>
                         <outlet property="listTableView" destination="SMO-A7-tAU" id="T3m-ZR-Mfk"/>
                     </connections>
@@ -120,6 +174,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
     </resources>
 </document>

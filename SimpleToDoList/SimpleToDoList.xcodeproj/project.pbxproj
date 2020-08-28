@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7645E6AD24F935FC00DC4690 /* CompleteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7645E6AC24F935FC00DC4690 /* CompleteTableViewController.swift */; };
 		766EA03724DA9932002778A9 /* SimpleToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 766EA03524DA9932002778A9 /* SimpleToDoList.xcdatamodeld */; };
 		766EA03A24DA9D87002778A9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766EA03924DA9D87002778A9 /* DataManager.swift */; };
 		76D8821324CF1CAE00F8695B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8821224CF1CAE00F8695B /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7645E6AC24F935FC00DC4690 /* CompleteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTableViewController.swift; sourceTree = "<group>"; };
 		766EA03624DA9932002778A9 /* SimpleToDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleToDoList.xcdatamodel; sourceTree = "<group>"; };
 		766EA03924DA9D87002778A9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		76D8820F24CF1CAE00F8695B /* SimpleToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +56,7 @@
 		76D8820624CF1CAE00F8695B = {
 			isa = PBXGroup;
 			children = (
+				7645E6AC24F935FC00DC4690 /* CompleteTableViewController.swift */,
 				76D8821124CF1CAE00F8695B /* SimpleToDoList */,
 				76D8821024CF1CAE00F8695B /* Products */,
 			);
@@ -158,6 +161,7 @@
 				76D8821724CF1CAE00F8695B /* ViewController.swift in Sources */,
 				766EA03A24DA9D87002778A9 /* DataManager.swift in Sources */,
 				76D8821324CF1CAE00F8695B /* AppDelegate.swift in Sources */,
+				7645E6AD24F935FC00DC4690 /* CompleteTableViewController.swift in Sources */,
 				76D8821524CF1CAE00F8695B /* SceneDelegate.swift in Sources */,
 				76D8822B24CF2FEC00F8695B /* ToDoListTableViewController.swift in Sources */,
 				766EA03724DA9932002778A9 /* SimpleToDoList.xcdatamodeld in Sources */,

@@ -116,6 +116,26 @@ extension ToDoListTableViewController: UITableViewDelegate {
             completeAction.backgroundColor = UIColor.systemBlue
             
             let editAction = UIContextualAction(style: .normal, title: "편집") { (action, view, complection) in
+                
+                let target = DataManager.shared.toDoList[indexPath.row]
+                let alert = UIAlertController(title: "할일 편집", message: "할 일을 편집할 수 있어요", preferredStyle: .alert)
+                alert.addTextField { (title) in
+                    title.placeholder = "할일"
+                    title.text = target.toDoTitle
+                }
+                let addButten = UIAlertAction(title: "편집", style: .default) { (addToDo) in
+                    guard let textField = alert.textFields else {return}
+                    guard let addToDo = textField.first?.text else {return}
+                    target.toDoTitle = addToDo
+                    self.listTableView.reloadData()
+
+                }
+                let cancleButten = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                
+                alert.addAction(addButten)
+                alert.addAction(cancleButten)
+                self.present(alert, animated: true,completion: nil)
+                
                 complection(true)
             }
             
