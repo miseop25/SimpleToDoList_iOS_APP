@@ -29,7 +29,9 @@ class ToDoListTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewWillAppear(true)
+
         DataManager.shared.fatchToDoList()
+        CompletedDataManager.shared.fatchToDoList()
         listTableView.reloadData()
 
 
@@ -110,6 +112,12 @@ extension ToDoListTableViewController: UITableViewDelegate {
             delectAction.backgroundColor = UIColor.systemRed
             
             let completeAction = UIContextualAction(style: .destructive, title: "완료") { (action, view, completion) in
+                let target = DataManager.shared.toDoList[indexPath.row]
+                CompletedDataManager.shared.addNewToDo(target.toDoTitle)
+                DataManager.shared.delectToDo(target)
+                DataManager.shared.toDoList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
                 print("완료버튼 선택")
                 completion(true)
             }

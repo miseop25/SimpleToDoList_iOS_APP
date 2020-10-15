@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ToDoList" representedClassName="ToDoList" syncable="YES" codeGenerationType="class">
+    <entity name="CompletedList" representedClassName="CompletedList" syncable="YES" codeGenerationType="class">
         <attribute name="dates" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="toDoTitle" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="ToDoList" positionX="-45" positionY="0" width="128" height="73"/>
+        <element name="CompletedList" positionX="-63" positionY="-18" width="128" height="73"/>
     </elements>
 </model>
