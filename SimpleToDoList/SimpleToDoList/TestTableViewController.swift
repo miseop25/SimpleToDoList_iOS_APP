@@ -29,6 +29,9 @@ class TestTableViewController: UITableViewController {
         testTableView.reloadData()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        testTableView.reloadData()
+    }
     
     @IBAction func reloadData(_ sender: Any) {
         testTableView.reloadData()
